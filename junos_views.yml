@@ -239,13 +239,19 @@ junos_lldp_neighbors_detail_view:
 
 junos_bgp_logical_systems_config_table:
   get: logical-systems
-  item: protocols/bgp
+  item: bgp
+  key: description
+  view: junos_bgp_logical_systems_config_view
+
+junos_bgp_logical_systems_config_group_table:
+  get: logical-systems
+  item: protocols/bgp/group
   key: name
-  view: junos_bgp_config_view
+  view: junos_bgp_logical_systems_config_view
 
 junos_bgp_logical_systems_config_view:
   fields:
-    description: {protocol/bgp/description: unicode}
+    description: { description: unicode }
 
 junos_bgp_config_table:
   get: protocols/bgp/group

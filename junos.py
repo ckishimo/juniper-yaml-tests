@@ -29,12 +29,31 @@ for item in arp_table_items:
 # ===================================================
 # BGP configuration
 # ===================================================
-bgp_config = junos_bgp_logical_systems_config_table(path='configuration.xml')
-bgp_config.get()
+# Global logical-system configuration
+bgp_config = junos_bgp_logical_systems_config_table(path='pe-london.xml')
+print(bgp_config)
+
+# Nothing bgp_config.get(logical_system=logical_system)
+# bgp_config.get(logical_system)
+
+kk = bgp_config.get()
+print(kk)
 
 lres = bgp_config.items()
 for item in lres:
 	if item[0] == 'pe-london':
-		print(item)
+		print(item[0])
+		for subitem in item[1]:
+			print("\t%s" % str(subitem))
 		break
 
+# Group logical-system configuration
+bgp_config = junos_bgp_logical_systems_config_group_table(path='pe-london.xml')
+bgp_config.get(logical_system=logical_system)
+lres = bgp_config.items()
+for item in lres:
+	if item[0] == 'pe-london':
+		print(item[0])
+		for subitem in item[1]:
+			print("\t%s" % str(subitem))
+		break
