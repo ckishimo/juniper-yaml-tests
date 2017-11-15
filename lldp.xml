@@ -1,0 +1,19 @@
+root@vqfx-re> show lldp neighbors | display xml 
+<rpc-reply xmlns:junos="http://xml.juniper.net/junos/15.1X53/junos">
+    <lldp-neighbors-information junos:style="brief">
+    </lldp-neighbors-information>
+    <cli>
+        <banner>{master:0}</banner>
+    </cli>
+</rpc-reply>
+
+{master:0}
+root@vqfx-re> show lldp neighbors interface xe-0/0/0 | display xml
+<rpc-reply xmlns:junos="http://xml.juniper.net/junos/15.1X53/junos">
+    <lldp-neighbors-information junos:style="detail">
+    </lldp-neighbors-information>
+    <cli>
+        <banner>{master:0}</banner>
+    </cli>
+</rpc-reply>
+
